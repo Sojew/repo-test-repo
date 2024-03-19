@@ -36,4 +36,11 @@ $ docker build -t converter-nest-app .
 # run docker container
 $ docker run -p 3000:3000 converter-nest-app
 ```
+Кидаем запросы: 
+```bash
+# порт форвард на 3000 порт
+GET /currency/convert?from=ethereum&to=tether&amount=100 
 
+# Swagger:
+GET /api
+```
