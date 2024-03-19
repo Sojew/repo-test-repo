@@ -25,12 +25,15 @@
 
 ```bash
 # development
-$ npm run start
+$ git clone https://github.com/Sojew/repo-test-repo.git
 
 # watch mode
-$ npm run start:dev
+$ cd repo-test-repo
 
-# production mode
-$ npm run start:prod
+# build docker image
+$ docker build -t converter-nest-app .
+
+# run docker container
+$ docker run -p 3000:3000 converter-nest-app
 ```
 
