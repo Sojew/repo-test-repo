@@ -22,52 +22,25 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
-```
-
-## Running the app
 
 ```bash
 # development
-$ npm run start
+$ git clone https://github.com/Sojew/repo-test-repo.git
 
 # watch mode
-$ npm run start:dev
+$ cd repo-test-repo
 
-# production mode
-$ npm run start:prod
+# build docker image
+$ docker build -t converter-nest-app .
+
+# run docker container
+$ docker run -p 3000:3000 converter-nest-app
 ```
-
-## Test
-
+Кидаем запросы: 
 ```bash
-# unit tests
-$ npm run test
+# порт форвард на 3000 порт
+GET /currency/convert?from=ethereum&to=tether&amount=100 
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+# Swagger:
+GET /api
 ```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
