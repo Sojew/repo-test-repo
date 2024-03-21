@@ -1,7 +1,9 @@
 import { IsString, IsNumber, IsOptional } from 'class-validator';
+import { IConverterQuery } from '../interfaces/converter-query.interface';
 import { ApiProperty } from '@nestjs/swagger';
+import { Transform } from 'class-transformer';
 
-export class ConvertCurrencyDTO {
+export class ConvertCurrencyDTO implements IConverterQuery {
   @IsString()
   @ApiProperty({
     required: true,
@@ -17,6 +19,7 @@ export class ConvertCurrencyDTO {
   })
   to: string = 'tether';
 
+  @Transform(({ value }) => parseFloat(value))
   @IsOptional()
   @IsNumber()
   @ApiProperty({
@@ -24,6 +27,4 @@ export class ConvertCurrencyDTO {
     description: 'amount {query_param}, default=1',
   })
   amount: number = 1;
-
-  result?: string;
 }

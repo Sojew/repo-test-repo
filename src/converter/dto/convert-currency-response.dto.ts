@@ -1,7 +1,7 @@
-import { IConverterQuery } from '../interfaces/converter-query.interface';
+import { IConverterResponse } from '../interfaces/converter-query.interface';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class ConvertCurrencyResponseDTO implements Required<IConverterQuery> {
+export class ConvertCurrencyResponseDTO implements IConverterResponse {
   @ApiProperty({
     required: true,
     description: 'from which currency {query_param}',
