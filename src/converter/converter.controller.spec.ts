@@ -15,20 +15,18 @@ describe('ConverterController', () => {
   });
 
   it('!= NaN ', async () => {
-    const data = await converterController.convertCurrency(
-      'bitcoin',
-      'openblox',
-      10999999999999999999999999999,
-    );
+    const query = { from: 'bitcoin', to: 'openblox', amount: 10999999999999999999999999999 };
+    const data = await converterController.convertCurrency(query);
     expect(data.result).not.toEqual('NaN');
   });
   describe('bitcoin/openblox', () => {
     it('!=Infinity ', async () => {
-      const data = await converterController.convertCurrency(
-        'bitcoin',
-        'openblox',
-        10000000000000000000000000000000000000000000000000,
-      );
+      const query = {
+        from: 'bitcoin',
+        to: 'openblox',
+        amount: 10000000000000000000000000000000000000000000000000,
+      };
+      const data = await converterController.convertCurrency(query);
       expect(String(data.result)).not.toEqual('Infinity');
     });
   });
