@@ -1,12 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ConverterController } from './converter.controller';
 import { ConverterService } from './converter.service';
-
+import { HttpModule } from '@nestjs/axios';
 describe('ConverterController', () => {
   let converterController: ConverterController;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
+      imports: [HttpModule],
       controllers: [ConverterController],
       providers: [ConverterService],
     }).compile();
